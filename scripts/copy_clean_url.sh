@@ -11,6 +11,6 @@
 # @raycast.authorURL https://www.gxlabs.co
 
 # Documentation:
-# @raycast.description Updates a clipboard URL with utm* and ref* parameters removed.
+# @raycast.description Updates a clipboard URL with utm*, ref*, hv* parameters removed.
 
-pbpaste | sed 's/?utm[^ ]*//g' | sed 's/?ref[^ ]*//g' | pbcopy
+pbpaste | awk -F '?' '{print $1}' | pbcopy
