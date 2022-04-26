@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/osascript
 
 # Required parameters:
 # @raycast.schemaVersion 1
@@ -13,4 +13,8 @@
 # Documentation:
 # @raycast.description Updates a clipboard URL with utm*, ref*, hv* parameters removed.
 
-pbpaste | awk -F '?' '{print $1}' | pbcopy
+set theClipboardURL to the clipboard
+set theCleanedClipboardURL to (do shell script ("echo " & theClipboardURL & " | awk -F '?' '{print $1}'"))
+delay 1
+tell application "System Events" to keystroke theCleanedClipboardURL
+delay 1
