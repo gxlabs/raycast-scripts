@@ -13,8 +13,5 @@
 # Documentation:
 # @raycast.description Updates a clipboard URL with utm*, ref*, hv* parameters removed.
 
-set theClipboardURL to the clipboard
-set theCleanedClipboardURL to (do shell script ("echo " & theClipboardURL & " | awk -F '?' '{print $1}'"))
-delay 1
+set theCleanedClipboardURL to (do shell script ("pbpaste | awk -F '?' '{print $1}'"))
 tell application "System Events" to keystroke theCleanedClipboardURL
-delay 1
