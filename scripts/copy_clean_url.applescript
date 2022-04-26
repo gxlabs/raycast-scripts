@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Cleans clipboard URL marketing cruft
+# @raycast.title Outputs URL from clipboard stripped of marketing cruft
 # @raycast.mode silent
 
 # Optional parameters:
@@ -11,7 +11,7 @@
 # @raycast.authorURL https://www.gxlabs.co
 
 # Documentation:
-# @raycast.description Updates a clipboard URL with utm*, ref*, hv* parameters removed.
+# @raycast.description Outputs a clipboard URL with all query parameters removed.
 
 set theCleanedClipboardURL to (do shell script ("pbpaste | awk -F '?' '{print $1}'"))
 tell application "System Events" to keystroke theCleanedClipboardURL
